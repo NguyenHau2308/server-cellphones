@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken'
+import jwt from "jsonwebtoken";
 import multer from "multer";
 import path from "path";
 
@@ -67,5 +67,3 @@ export function PinComment(arr, fromIndex, toIndex) {
 
   return arr;
 }
-
-

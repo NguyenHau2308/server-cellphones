@@ -1,4 +1,4 @@
-import express from 'express'
+import express from "express";
 import {
   getAllProduct,
   filterProductByType,
@@ -59,6 +59,6 @@ ProductRouter.delete(
   DeleteProduct
 );
 
-ProductRouter.get('/search/product', SearchProduct)
+ProductRouter.get("/search/product", SearchProduct);
 
-export default ProductRouter
+export default ProductRouter;

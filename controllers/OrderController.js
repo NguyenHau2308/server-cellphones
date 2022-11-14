@@ -45,13 +45,13 @@ export const createOrder = expressAsyncHandler(async (req, res) => {
 });
 
 export const clientCancelOrder = expressAsyncHandler(async (req, res) => {
-  const updateOrder = await OrderModel.findById({_id: req.params.id})
+  const updateOrder = await OrderModel.findById({ _id: req.params.id });
 
-   if(updateOrder){
-    updateOrder.cancelOrder = true
-    await updateOrder.save()
-   }
-   res.send(updateOrder)
+  if (updateOrder) {
+    updateOrder.cancelOrder = true;
+    await updateOrder.save();
+  }
+  res.send(updateOrder);
 });
 
 export const updateOrder = expressAsyncHandler(async (req, res) => {
@@ -87,7 +87,8 @@ export const updateOrder = expressAsyncHandler(async (req, res) => {
       note: "",
       required_note: "KHONGCHOXEMHANG",
 
-      cod_amount: updateOrder.paymentMethod === "payOnline" ? 0 : updateOrder.totalPrice,
+      cod_amount:
+        updateOrder.paymentMethod === "payOnline" ? 0 : updateOrder.totalPrice,
       items,
     };
     updateOrder.order_code = req.params.id;
@@ -148,14 +149,11 @@ export const PrintOrderGhn = expressAsyncHandler(async (req, res) => {
         }
       );
       res.send(result.config.url);
-    } catch (error) {
-    }
-    
+    } catch (error) {}
   } else {
-    res.send({message: 'order not found'})
+    res.send({ message: "order not found" });
   }
 });
-
 
 export const GetAllOrder = expressAsyncHandler(async (req, res) => {
   //await OrderModel.remove()
@@ -214,7 +212,7 @@ export const GetAllOrderPaid = expressAsyncHandler(async (req, res) => {
 });
 
 export const DeleteOrder = expressAsyncHandler(async (req, res) => {
-  const deleteOrder = await OrderModel.findById({_id: req.params.id});
+  const deleteOrder = await OrderModel.findById({ _id: req.params.id });
 
   if (deleteOrder) {
     await deleteOrder.remove();
@@ -324,4 +322,3 @@ export const GetAllOrderInAMonth = expressAsyncHandler(async (req, res) => {
     res.status(400).send({ message: "no product in a month" });
   }
 });
-

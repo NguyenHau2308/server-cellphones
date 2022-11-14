@@ -1,13 +1,19 @@
-import mongoose from 'mongoose'
+import mongoose from "mongoose";
 
-const Schema = mongoose.Schema
-const ConversationSchema = new Schema({
+const Schema = mongoose.Schema;
+const ConversationSchema = new Schema(
+  {
     idUser: String,
     nameConversation: String,
     lastMessage: String,
-    seen: {type: Boolean, default: false},
-}, {
-    timestamps: true
-});
+    seen: { type: Boolean, default: false },
+  },
+  {
+    timestamps: true,
+  }
+);
 
-export const ConversationModel = mongoose.model('conversation', ConversationSchema)
+export const ConversationModel = mongoose.model(
+  "conversation",
+  ConversationSchema
+);

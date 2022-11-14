@@ -137,7 +137,7 @@ export const inpPayment = async (req, res) => {
   const checkSum = sha256(signData);
 
   const id = vnp_Params.vnp_TxnRef;
-  
+
   if (secureHash === checkSum) {
     var orderId = vnp_Params["vnp_TxnRef"];
     var rspCode = vnp_Params["vnp_ResponseCode"];
